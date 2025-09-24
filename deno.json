@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "std/csv/parse": "https://deno.land/std@0.224.0/csv/parse.ts"
+  },
+  "compilerOptions": {
+    "lib": ["deno.ns", "dom"]
+  },
+  "tasks": {
+    "csv2xml:project": "deno run --allow-read --allow-write scripts/oza-csv_to_xml.ts --model project.project --input ./custom-addons/oza_seed/data/project.project.csv --out ./custom-addons/oza_seed/data/project.project.xml --id-column id --noupdate",
+
+    "csv2xml:task": "deno run --allow-read --allow-write scripts/oza-csv_to_xml.ts --model project.task --input ./custom-addons/oza_seed/data/project.task.csv --out ./custom-addons/oza_seed/data/project.task.xml --id-prefix oza_task_ --noupdate",
+
+    "csv2xml:partner": "deno run --allow-read --allow-write scripts/oza-csv_to_xml.ts --model res.partner --input ./custom-addons/oza_seed/data/res.partner.csv --out ./custom-addons/oza_seed/data/res.partner.xml --id-prefix oza_partner_ --noupdate"
+  }
+}
