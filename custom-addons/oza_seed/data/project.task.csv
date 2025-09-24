@@ -1,0 +1,3 @@
+id,name,project_id/id,partner_id/id,priority,active
+oza_task_001,Instalar stack,oza_proj_001,,2,1
+oza_task_002,Aplicar branding,oza_proj_001,,1,1
