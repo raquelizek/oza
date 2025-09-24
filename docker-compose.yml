@@ -1,0 +1,55 @@
+services:
+  db:
+    image: ${POSTGRES_IMAGE}
+    container_name: oza_db
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      TZ: ${TZ}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  odoo:
+    image: ${ODOO_IMAGE}
+    container_name: oza-odoo
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file: .env
+    environment:
+      HOST: db
+      USER: ${POSTGRES_USER}
+      PASSWORD: ${POSTGRES_PASSWORD}
+      DATABASE: ${POSTGRES_DB}
+      TZ: ${TZ}
+      ODOO_RC: /etc/odoo/odoo.conf
+    volumes:
+      - ./custom-addons:/mnt/extra-addons:rw
+      - ./odoo.conf:/etc/odoo/odoo.conf:ro
+      - filestore:/var/lib/odoo
+      - logs:/var/log/odoo
+    ports:
+      - "8069:8069"
+      - "8072:8072"
+    command: >
+      odoo
+      --config=/etc/odoo/odoo.conf
+      -i oza_branding,oza_seed
+      --without-demo=all
+      --db-filter=^${ODOO_DB_NAME}$
+      --limit-time-cpu=1200
+      --limit-time-real=2400
+      --limit-memory-hard=1073741824
+      --limit-memory-soft=805306368
+    restart: unless-stopped
+
+volumes:
+  db-data:
+  filestore:
+  logs:
