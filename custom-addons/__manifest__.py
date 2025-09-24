@@ -3,8 +3,7 @@
   "version": "1.0",
   "depends": ["base"],
   "data": [
-    "data/users.csv",
-    "data/tasks.csv",
+  "data/res.partner.csv",
   ],
   "installable": True,
 }
