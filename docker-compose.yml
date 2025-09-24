@@ -31,7 +31,7 @@ services:
       ODOO_RC: /etc/odoo/odoo.conf
     volumes:
       - ./custom-addons:/mnt/extra-addons:rw
-      - ./odoo.conf:/etc/odoo/odoo.conf:ro
+      - ./odoo.conf:/etc/odoo/odoo.conf:rw
       - filestore:/var/lib/odoo
       - logs:/var/log/odoo
     ports:
