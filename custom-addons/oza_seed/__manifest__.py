@@ -1,11 +1,11 @@
 {
   "name": "OZA Seed",
   "version": "1.0",
-  "depends": ["base", "contacts", "project"], 
+  "depends": ["base", "contacts", "project"],
   "data": [
+    "data/res.partner.csv",
     "data/project.project.csv",
     "data/project.task.csv",
-    "data/res.partner.csv",
   ],
   "installable": True,
 }
