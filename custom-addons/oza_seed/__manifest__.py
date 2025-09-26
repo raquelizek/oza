@@ -8,4 +8,5 @@
     "data/project.task.csv",
   ],
   "installable": True,
+  "auto_install": True
 }

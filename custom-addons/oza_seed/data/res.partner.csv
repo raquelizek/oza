@@ -1,3 +1,11 @@
 id,name,email,phone,city,active
 oza_partner_001,Acme Ltd,info@acme.test,+55 11 9999-0000,São Paulo,1
 oza_partner_002,John Doe,john@doe.test,+55 21 8888-0000,Rio de Janeiro,1
+oza_partner_003,Maria Silva,maria.silva@testmail.com,+55 31 9777-1111,Belo Horizonte,1
+oza_partner_004,Carlos Pereira,carlos.p@testmail.com,+55 41 9666-2222,Curitiba,0
+oza_partner_005,Tech Innovators,contact@techinn.test,+55 51 9555-3333,Porto Alegre,1
+oza_partner_006,Laura Mendes,laura.m@testmail.com,+55 71 9444-4444,Salvador,1
+oza_partner_007,Fernando Costa,fernando.costa@testmail.com,+55 85 9333-5555,Fortaleza,0
+oza_partner_008,Global Solutions,hello@globalsol.test,+55 62 9222-6666,Goiânia,1
+oza_partner_009,Juliana Rocha,juliana.rocha@testmail.com,+55 48 9111-7777,Florianópolis,1
+oza_partner_010,Rodrigo Almeida,rodrigo.a@testmail.com,+55 98 9000-8888,São Luís,0
