@@ -9,28 +9,25 @@ services:
       TZ: ${TZ}
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
+    ports: ["5432:5432"]
     restart: unless-stopped
 
   odoo:
     image: odoo:19.0
     container_name: oza_odoo
-    depends_on:
-      - db
-    ports:
-      - "8069:8069"
-    environment:
-      - HOST=db
-      - PORT=5432
-      - USER=${POSTGRES_USER}
-      - PASSWORD=${POSTGRES_PASSWORD}
+    depends_on: [db]
+    ports: ["8069:8069"]
     volumes:
       - odoo_data:/var/lib/odoo
-      - ./config:/etc/odoo
+      - ./config:/etc/odoo:rw            
       - ./custom-addons:/mnt/extra-addons
-      - ./odoo.conf:/etc/odoo/odoo.conf:rw
     restart: unless-stopped
+    command: >
+      odoo
+      -d oza_db
+      -i oza_seed,oza_branding
+      --without-demo=all
+      --load-language=pt_BR
 
 volumes:
   postgres_data:
