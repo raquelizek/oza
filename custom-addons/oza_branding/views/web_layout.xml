@@ -4,16 +4,15 @@
         <xpath expr="//title" position="replace">
             <title>OZA塾管理システム</title>
         </xpath>
-        
+
         <xpath expr="//link[@rel='shortcut icon']" position="replace">
             <link rel="icon" type="image/png" href="/oza_theme/static/src/img/oza_logo.png"/>
             <link rel="shortcut icon" type="image/png" href="/oza_theme/static/src/img/oza_logo.png"/>
         </xpath>
         
         <xpath expr="//head" position="inside">
-            <meta name="description" content="OZA Management System"/>
-            <meta name="author" content="OZA Team"/>
-            <link rel="apple-touch-icon" href="/oza_theme/static/src/img/oza_logo.png"/>
+            <link rel="icon" type="image/png" href="/oza_branding/static/src/img/favicon.png"/>
+            <link rel="shortcut icon" type="image/png" href="/oza_branding/static/src/img/favicon.png"/>
         </xpath>
     </template>
 
