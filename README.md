@@ -314,6 +314,9 @@ pip install -r requirements.txt
 # Limpe cache Python
 find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null
 
+# Limpar cache dos Assets
+find ./odoo-data/filestore/oza_db -maxdepth 1 -type d -name 'assets_*' -exec rm -rf {} + 2>/dev/null || true
+
 # Reinicie em modo dev
 ./odoo-bin --addons-path="addons/,custom-addons/" -c config/odoo.conf --dev=all
 ```
